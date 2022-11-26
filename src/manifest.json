@@ -1,0 +1,47 @@
+{
+  "manifest_version":  3,
+  "name": "npSURFER",
+  "description": "An overlayed grid for opening links.",
+
+  "version": "0.0.0.6",
+  "author": "npSURFER.com",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon32.png"
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": 
+      [
+        "scripts/rtree.js", 
+        "scripts/constants.js", 
+        "gridOverlay.html", 
+        "background.js",
+        "popup.js",
+        "popup.html",
+        "numpadwebsurfer128.png"       
+      ],
+
+      "matches": ["https://*/*","http://*/*"]
+    }
+  ],
+
+
+  "content_scripts": [
+    {
+      "matches": ["https://*/*","http://*/*"],
+      "js": ["scripts/rtree.js","scripts/constants.js","scripts/pagequeries.js","scripts/content.js"]
+      
+    }
+  ]
+
+  
+}
