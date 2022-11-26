@@ -22,12 +22,13 @@
       "resources": 
       [
         "scripts/rtree.js", 
-        "scripts/constants.js", 
+        "scripts/nps-constants.js", 
         "gridOverlay.html", 
         "background.js",
         "popup.js",
         "popup.html",
-        "numpadwebsurfer128.png"       
+        "leftTray.html",
+        "npsurfer128.png"       
       ],
 
       "matches": ["https://*/*","http://*/*"]
@@ -38,7 +39,15 @@
   "content_scripts": [
     {
       "matches": ["https://*/*","http://*/*"],
-      "js": ["scripts/rtree.js","scripts/constants.js","scripts/pagequeries.js","scripts/content.js"]
+      "js": [
+        "scripts/rtree.js",
+        "scripts/nps-constants.js",
+        "scripts/nps-utils.js",
+        "scripts/nps-gridOverlaySettersAndGetters.js",
+        "scripts/nps-gridOverlayModesAndProcedures.js",
+        "scripts/nps-pageQueries.js",
+        "scripts/nps-gridStates.js",
+        "scripts/content.js"]
       
     }
   ]

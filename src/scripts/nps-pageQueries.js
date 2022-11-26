@@ -3,6 +3,33 @@
 // ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
 
 
+// ----------------
+// LISTS OF CLICKABLE DOM ELEMENTS
+//
+// These are the DOM elements present on the page
+// to begin with that are clickable by the user.
+//    -- anchors
+//    -- input nodes
+//    -- button nodes
+//
+// They are what need to be tagged with key labels.
+//
+// makeQueriesForClickableDOMElementsOnPage()
+// assembles them and it is located in the pagequery.js file.
+// ----------------
+
+var anchorNodesPresentInLoadedDOM1 = new Array();
+var anchorNodesPresentInLoadedDOM2 = new Array();
+
+var inputNodesPresentInLoadedDOM1 = new Array();
+var inputNodesPresentInLoadedDOM2 = new Array();
+
+var buttonNodesPresentInLoadedDOM1 = new Array();
+var buttonNodesPresentInLoadedDOM2 = new Array();
+
+
+
+
 function makeQueriesForClickableDOMElemLists(dom)
 {
  // V1
@@ -69,8 +96,7 @@ function makeQueriesForClickableDOMElemLists(dom)
 }
 
 
-// ---------
-// UNUSED
+
 // ---------
 // ░░░░░░░░░░░░░░░░░░░░░░░
 // Get array of all elem. with cursor style set to 'pointer'

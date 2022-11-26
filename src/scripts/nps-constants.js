@@ -46,10 +46,14 @@ var storedPrefs = {
     /* "prefURLPageForANewTab" : "Backslash+Shift", */
   
     "prefURLGoogle" : "Backslash+Shift",
+
+    "prefLeftTrayNumpad" : "Numpad4+Shift",
+
+    "prefLeftTrayRegularKeys" : "Backquote",
   
-    "prefToggleWebsurferModeNumpad" : "Numpad0",
+    "prefToggleWebsurferModeNumpad" : "Numpad0+Shift",
   
-    "prefToggleWebsurferModeRegularKeys" : "Digit0",
+    "prefToggleWebsurferModeRegularKeys" : "Digit0+Shift",
   
     "modifierKeyForLabels" : "alt",
     
