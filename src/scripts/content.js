@@ -260,7 +260,6 @@ window.onkeydown = function (event) {
 
 
 
-
   // ------ OFF OR ON ( --> setWebsurferPowerMode() )
   // Check if the key pressed turns the websurfer on and off
   // ------
@@ -289,12 +288,10 @@ window.onkeydown = function (event) {
   // Check if the key pressed hides or shows the websurfer (grid).
   // (leads to --> setGridIsVisible() )
   // ------
-  if( processEventForHideOrShowWebsurfer(prefEventKeyCodeToCheck) )
+  if( processEventForHideOrShowOverlayGrid(prefEventKeyCodeToCheck) )
   {
     return;
   }
-
-
 
 
 
@@ -304,7 +301,7 @@ window.onkeydown = function (event) {
   // --------   
   if( modeForWebsurferIsLinkBrowser() )
   {
-    processEventForLinkBrowser(event);
+    processEventForLinkBrowser(prefEventKeyCodeToCheck);
   }
 
   // test the event key against

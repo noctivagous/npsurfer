@@ -1,7 +1,7 @@
 
 
 
-function processEventForHideOrShowWebsurfer(prefEventKeyCodeToCheck) {
+function processEventForHideOrShowOverlayGrid(prefEventKeyCodeToCheck) {
 
   if (gridIsVisible()) {
 
@@ -13,9 +13,9 @@ function processEventForHideOrShowWebsurfer(prefEventKeyCodeToCheck) {
     ) {
 
       resetWebsurferGridOverlay();
-      if (lastFocusedElement) {
-        lastFocusedElement.focus();
-      }
+      //if (lastFocusedElement) {
+     //   lastFocusedElement.focus();
+     // }
       return true;
 
 
@@ -142,7 +142,7 @@ function processEventForHideOrShowLeftTray(prefEventKeyCodeToCheck) {
 
 
   if (getLeftTrayIsVisible()) {
-    
+
     if (
       (prefEventKeyCodeToCheck == "Escape") ||
       (prefEventKeyCodeToCheck == storedPrefs["prefLeftTrayNumpad"]) ||
@@ -161,7 +161,7 @@ function processEventForHideOrShowLeftTray(prefEventKeyCodeToCheck) {
       (prefEventKeyCodeToCheck == storedPrefs["prefExtraEscapeKeyRegularKeys"])
     ) {
 
-      
+
       setLeftTrayIsVisible(false);
 
       return true;
@@ -177,8 +177,7 @@ function processEventForHideOrShowLeftTray(prefEventKeyCodeToCheck) {
 
     ) {
 
-      if(gridIsVisible())
-      {
+      if (gridIsVisible()) {
         setGridIsVisible(false);
       }
 
@@ -193,7 +192,7 @@ function processEventForHideOrShowLeftTray(prefEventKeyCodeToCheck) {
 
 
 
-function processEventForHideOrShowWebsurfer(prefEventKeyCodeToCheck) {
+function processEventForHideOrShowOverlayGrid(prefEventKeyCodeToCheck) {
 
   if (gridIsVisible()) {
 
@@ -210,9 +209,9 @@ function processEventForHideOrShowWebsurfer(prefEventKeyCodeToCheck) {
 
 
       resetWebsurferGridOverlay();
-      if (lastFocusedElement) {
-        lastFocusedElement.focus();
-      }
+    //  if (lastFocusedElement) {
+   //     lastFocusedElement.focus();
+     // }
       return true;
 
 
@@ -357,14 +356,15 @@ function setWebsurferPowerMode(onOrOff) {
 
 
 
-function processEventForLinkBrowser(event) {
+function processEventForLinkBrowser(prefEventKeyCodeToCheck) {
   // -------------
-  // back, forward, escape
+  // back, forward, escape, tab next, tab previous
+  // custom omnibox
   // -------------
-  if (checkAgainstLinkBrowserCommands(event)) {
+  if (checkAgainstLinkBrowserCommands(prefEventKeyCodeToCheck)) {
     return;
   }
-  var eventCodeStr = String(event.code);
+  var eventCodeStr = prefEventKeyCodeToCheck;
 
   let isDigitOnNumpad = numpadDigitsCodesArray.includes(event.code);
 
@@ -386,20 +386,21 @@ function processEventForLinkBrowser(event) {
 
         pauseAllVideos(document);
 
-        event.stopPropagation();
+        //event.stopPropagation();
 
         // If the grid is hidden
         if (gridIsVisible() == false) {
 
-          if(getLeftTrayIsVisible())
-          {
+          if (getLeftTrayIsVisible()) {
             setLeftTrayIsVisible(false);
           }
 
-          setGridIsVisible(true);
-//          numpadGridBoxes.style.display = 'grid';
           lastFocusedElement = document.activeElement;
           document.activeElement.blur();
+
+          setGridIsVisible(true);
+          // numpadGridBoxes.style.display = 'grid';
+          
           //return;
         }
 
@@ -420,35 +421,35 @@ function processEventForLinkBrowser(event) {
     // ===============================
     // ===============================
 
-    /*
-    if( modeForInteractiveOverlayIsRegularKeys())
-  {
-  
-  pauseAllVideos(document);
-  
-  event.stopPropagation();
-  
-  // If the grid is hidden
-  if (gridIsVisible() == false) {
-  
-    setGridIsVisible(true);
-    lastFocusedElement = document.activeElement;
-    document.activeElement.blur();
-    //return;
-  }
-  
-  let indxP1 = regularKeysCodesArray.indexOf(event.code) + 1;
-  
-  
-  if(indxP1)
-  {
-   
-    selectGridCellByCellIndex("#numpadBox-regularKeys", String(indxP1), ".numpadBox");
-  }
-  
-  
-  } // END if ( modeForInteractiveOverlayIsRegularKeys() )
-  */
+
+    else if ( modeForInteractiveOverlayIsRegularKeys() ) {
+
+      pauseAllVideos(document);
+
+      // event.stopPropagation();
+
+      // If the grid is hidden
+      if (gridIsVisible() == false) {
+
+        lastFocusedElement = document.activeElement;
+        document.activeElement.blur();
+
+        setGridIsVisible(true);
+        
+        //return;
+      }
+
+      let indxP1 = regularKeysCodesArray.indexOf(prefEventKeyCodeToCheck) + 1;
+
+
+      if (indxP1) {
+
+        selectGridCellByCellIndex("#numpadBox-regularKeys", String(indxP1), ".numpadBox");
+      }
+
+
+    } // END if ( modeForInteractiveOverlayIsRegularKeys() )
+
 
 
 
@@ -461,6 +462,7 @@ function processEventForLinkBrowser(event) {
 
 
 } // END processEventForLinkBrowser
+
 
 
 function keyLabelsTest(event) {
@@ -481,7 +483,6 @@ function keyLabelsTest(event) {
     eventKey = event.code.replace("Digit", "");
 
   }
-
 
 
   if (event.shiftKey) {
@@ -618,9 +619,13 @@ function selectGridCellByCellIndex(idPrefixForGridCell, idPostfixNumberForGridCe
 // ░░░░░░░░░░░░░░░░░░░░░░░
 // CHECK KEY EVENT AGAINST WEBSURFER COMMANDS
 // -- back, forward
+// -- tab next, tab previous
+// -- close tab, make new tab
 // -- toggle mode
 // -- turn on and off
+// -- custom omnibox
 // ░░░░░░░░░░░░░░░░░░░░░░░
+
 
 function checkAgainstLinkBrowserCommands(prefEventKeyCodeToCheck) {
 
@@ -662,11 +667,20 @@ function checkAgainstLinkBrowserCommands(prefEventKeyCodeToCheck) {
   }
 
 
-  if (prefEventKeyCodeToCheck == storedPrefs["prefURLPageForANewTab"]) {
+  if (prefEventKeyCodeToCheck == storedPrefs["prefNewTabNumberpad"]) 
+  {
 
     window.open("chrome://newtab", "_self");
 
   }
+
+  if (prefEventKeyCodeToCheck == storedPrefs["prefCloseTabNumberpad"]) 
+  {
+
+
+  }
+
+
 
   if (prefEventKeyCodeToCheck == storedPrefs["prefURLGoogle"]) {
 

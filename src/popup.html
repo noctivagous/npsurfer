@@ -15,7 +15,7 @@ display:none;
 
 .tabcontent
 {
-  height: 360px;
+  height: 200px;
 }
 
     /* Style the tab */
@@ -254,13 +254,17 @@ display:none;
 <div id="containingBox" 
  >
 
-  <div style="margin-bottom:10px;font-weight: bold;font-size: 20px;text-align: center;margin-top: 5px;">npSURFER</div>
-
+  <div style="margin-bottom:10px;font-weight: bold;font-size: 20px;text-align: center;margin-top: 5px;">npSURFER 
+    <!--<Span style="font-weight: normal;color:silver">
+    keyboard commands</Span>
+    -->
+  </div>
+<!--
     <div class="tab">
-      <!--<button class="tablinks"  value="settings tempHidden">Settings</button>-->
+      <button class="tablinks"  value="settings tempHidden">Settings</button>
       <button class="tablinks active"  value="keyboardControls">Keyboard Controls</button>
     </div>
-
+  -->
     <div id="tabContentsContainer" style="padding:0px;">
   <div id="settings" class="tabcontent tempHidden">
     <!-- background: linear-gradient(0deg, rgba(112, 112, 112, 0.4) 0%, rgba(118, 118, 118, 0.4) 31%, rgba(45,45,45,0.4) 78%, rgba(112, 112, 112, 0.4) 100%); -->
@@ -332,36 +336,76 @@ display:none;
       <table class="kbControlsList">
 
         <tr>
+          <td class="desc">number pad</span></td>
+          <td class="desc">regular keys</span></td>
+          <td class="desc">description</span></td>
+        </tr>
+
+        <tr>
+          <td><kbd style="font-size:12px;width:50px;height:25px"> shift </kbd> <span style="color:white;">+</span> 
+             <kbd style="font-size:12px;height:25px"> 4 </kbd> 
+             <div style="text-align:right">(Numpad)</div></td>
+
+             <td><kbd style="font-size:12px;width:50px;height:25px"> shift </kbd> <span style="color:white;">+</span> 
+              <kbd style="font-size:12px;height:25px"> 4 </kbd> 
+              <div style="text-align:right"><br/></div></td>
+              
+          <td class="desc">
+            <span style="font-weight: bold;font-size: 20px;">Show full list of commands (while inside any web page).
+              <br/> 
+            <span style="color:gray">Use this instead of this popup window.</span>
+          </span>
+          </td>
+        </tr>
+<!--
+        
+        <tr>
           <td><kbd style="font-size:12px;width:50px;height:25px"> shift </kbd> <span style="color:white;">+</span> 
              <kbd style="font-size:12px;height:25px"> 0 </kbd> 
-             <div style="text-align:right">(Numpad)</div></td>
+             <div style="text-align:right">(Numpad)</div>
+            </td>
+             <td><kbd style="font-size:12px;width:50px;height:25px"> shift </kbd> <span style="color:white;">+</span> 
+              <kbd style="font-size:12px;height:25px"> 0 </kbd> 
+              <div style="text-align:right"><br/></div></td>
+              
           <td class="desc">Turn Grid Availability Off or On <span style="color:gray">("off" for when text needs to be typed.) 
             Applies to each tab individually.</span></td>
         </tr>
-
+      -->
+<!--
         <tr>
-          <td><!-- <kbd style="font-size:12px"> . </kbd> or--><kbd style="font-size:12px"> . </kbd> (Numpad)</td>
+          <td><kbd style="font-size:12px"> . </kbd> (Numpad)</td>
+          <td>
+            <kbd style="font-size:12px;height:25px"> . </kbd> 
+            <div style="text-align:right"><br/></div></td>
+            
           <td class="desc">Hide Grid</td>
         </tr>
+      -->
 
+        <!--
         <tr>
           
             <td>
-              <!--<kbd> - </kbd> <kbd> = </kbd> or <br/> 
-          -->
+           <kbd> - </kbd> <kbd> = </kbd> or <br/> 
+          
+
+          
             <kbd> / </kbd> <kbd> * </kbd>(Numpad)</td>
           <td class="desc">Back and Forward</td>
         </tr>
-
+      -->
+      <!--
         <tr>
           <td><kbd> \ </kbd></td>
           <td class="desc">Navigate to Root of Current Domain</td>
         </tr>
+      -->
 
-        <tr>
+<!--        <tr>
           <td><kbd style="font-size:12px;width:50px;height:25px"> shift </kbd> + <kbd> \ </kbd></td>
           <td class="desc">Go to Google search</td>
-        </tr>
+        </tr>-->
 
         <tr class="tempHidden">
           <td><kbd> shift </kbd> + <kbd> \ </kbd> </td>
@@ -395,7 +439,7 @@ display:none;
   </div>
  
 </div><!-- END cB-->
-  <script src="popup.js"></script>
+
 
 </body>
 

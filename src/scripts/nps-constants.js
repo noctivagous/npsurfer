@@ -31,7 +31,7 @@ let regularKeysCodesArray = ["KeyJ","KeyK","KeyL","Semicolon",
 
 var storedPrefs = {
 
-    "version": "0.43",
+    "storedPrefsVersion": "0.43",
   
     "onOffStatus" : "on",
   
@@ -39,25 +39,40 @@ var storedPrefs = {
   
     "browserInputOfWebsurfer" : "numberpad",  // "regularKeys"
   
-    "prefURLPathnameSelectorModeKey" : "Backslash",
+    "prefNPSAddressSearchBar" : "Backslash",
+
+/*  "prefURLPathnameSelectorModeKey" : "Backslash",  */
+
+    "prefURLRootOfDomain" : "Backslash+Shift", 
   
-    "prefURLRootOfDomain" : "Backslash",
-  
-    /* "prefURLPageForANewTab" : "Backslash+Shift", */
-  
+    /* ------- NEW TAB / CLOSE TAB ------- */
+
+    "prefNewTabNumberpad" : "NumpadAdd+Shift",
+
+    "prefCloseTabNumberpad" : "NumpadSubtract+Shift",
+
+    "prefNewTabRegularKeys" : "Digit8",
+
+    "prefCloseTabRegularKeys" : "Digit7",
+
     "prefURLGoogle" : "Backslash+Shift",
+
+    /* -------- LEFT TRAY -------- */
 
     "prefLeftTrayNumpad" : "Numpad4+Shift",
 
     "prefLeftTrayRegularKeys" : "Backquote",
   
+    /* -------- TOGGLE WEBSURFER -------- */
+
     "prefToggleWebsurferModeNumpad" : "Numpad0+Shift",
   
     "prefToggleWebsurferModeRegularKeys" : "Digit0+Shift",
   
     "modifierKeyForLabels" : "alt",
     
-    /* BACK AND FORWARD KEYS */
+    /* -------- BACK AND FORWARD KEYS -------- */
+
     "prefBackKeyNumpad": "NumpadDivide",
   
     "prefForwardKeyNumpad": "NumpadMultiply",
@@ -65,7 +80,16 @@ var storedPrefs = {
     "prefBackKeyRegularKeys": "Minus",
   
     "prefForwardKeyRegularKeys": "Equal",
-  
+
+    "prefNextTabNumberpad" : "NumpadAdd",
+
+    "prefPreviousTabNumberpad" : "NumpadSubtract",
+
+    "prefNextTabRegularKeys" : "Digit0",
+
+    "prefPreviousTabRegularKeys" : "Digit9",
+
+
     "prefExtraEscapeKeyNumpad" : "NumpadDecimal",
   
     "prefExtraEscapeKeyRegularKeys" : "Period",
@@ -181,6 +205,8 @@ let keyCharsArrayNumpad = [
   
 ];
 
+
+
 let keyCharsArrayRegularKeys = [
   'a',
   's',
@@ -207,10 +233,8 @@ let keyCharsArrayRegularKeys = [
   '3',
   '4',
   '5',
-  '6',
-  '7',
-  '8',
-  '9',
+  '[',
+  ']',
 
   '⇧a',
   '⇧s',
@@ -237,9 +261,5 @@ let keyCharsArrayRegularKeys = [
   '⇧3',
   '⇧4',
   '⇧5',
-  '⇧6',
-  '⇧7',
-  '⇧8',
-  '⇧9',
-  
 ];
+  
